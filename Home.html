@@ -1,7 +1,7 @@
 <!--
 /*
 * Programmer : Dr.-Ing. Bader Juma
-* Date       : June 08, 2019
+* Date       : June 09, 2019
 * File       : Home.html
 * Purpose    : GUI of Rubik Desing
 */
@@ -51,10 +51,66 @@
   <div class="grid-item"><table id="bottom"></table></div>  
   <div class="grid-item">12</div> 
 </div>
+<br><br>
+<div>
+<p>Choose axis rotation</p>
+  <select id="axisRotation">
+  
+  <!--
+    <option value="x">X</option>
+	-->
+    <option value="y">Y</option>
+	
+    <option value="z">Z</option>
+	
+  </select>
+  <br><br>
+  <p>Choose direction of rotation</p>
+    <select id="typeRotation">
+    <option value="cw">Clockwise</option>
+	<!--
+    <option value="anticw">Anticlockwise</option>
+	-->
+  </select>
+  <br><br>
+  <p>Choose step of rotation</p>
+  <select id="stepRotation">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  </select>
+    </select>
+  <br><br>
+  <p>Choose position of cell to be rotate between 1 and matrix dimension</p>
+  <input id="cellRotation" value="2">
+   <!--
+  <select id="cellRotation">-->
+  <!--
+  <option value="1">1</option> -->
+  <!--
+  <option value="2">2</option> -->
+  <!--
+  <option value="3">3</option> -->
+  <!--
+  </select>-->
+  
+  <br><br>
+  
+  <button type="button" onclick="rotationInputFunction()">Submit</button>
 
-<!--Call javaScript code -->
+</div>
+<p id="demo1"></p>
+
+<!--Call javaScript code for create rubic orthographic -->
 <script src="myScript.js"></script>
 <script src="faceCreationScript.js"></script>
 <script src="cellColorScript.js"></script>
+<script src="rotationScript.js"></script> 
+<!--
+<script src="matrixYaxisRotationScript.js"></script> -->
+<script src="matrixZaxisRotationScript.js"></script>
+<script src="cellColorZaxisScript.js"></script>
+
+
 </body>
 </html>
