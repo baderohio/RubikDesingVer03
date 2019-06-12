@@ -19,9 +19,12 @@ function rotationInputFunction() {
  //Read data
  axisVar = $( "#axisRotation" ).val();       //name of axis
  directionRot = $( "#typeRotation" ).val(); // direction of rotation here
- numStepRot = $( "#stepRotation" ).val();    // number step of rotation
- cellLocation = $( "#cellRotation" ).val();  // location to rotate
- matrixDimension = document.getElementById("numb").value;
+ numStepRot = parseInt($( "#stepRotation" ).val());    // number step of rotation
+ cellLocation = parseInt($( "#cellRotation" ).val());  // location to rotate
+ matrixDimension = parseInt(document.getElementById("numb").value);
+
+
+
 
 // initialize matrix face color a number matching type of color
 for (i = 0; i < matrixDimension*matrixDimension; i++) {
@@ -32,36 +35,20 @@ leftsideArr[i] = colorCode[3];
 topArr[i] = colorCode[4];
 bottomArr[i] = colorCode[5];
 }
- 
- // k repsent step rotation in middle in clock wise dircetion
- // axisVar = Z, numStepRot = 1, cellLocation = middle; 
- for(k=0; k < numStepRot; k++){
-   for (i = matrixDimension; i< (2*matrixDimension); i++) {	
-	 temp=backArr[i];
-	 backArr[i] = rightsideArr[i];
-	 rightsideArr[i] = frontArr[i];
-	 frontArr[i] = leftsideArr[i];
-	 leftsideArr[i] = temp;	 
-                                                          }
-                             }
- 
- // k represent the face
- for (k=0; k< 4; k++) {	
-    // put color for each cell j is row and i is cols of matrix first cell is 0,0
-   j = cellLocation-1;
-      for (i = 0; i < matrixDimension; i++) {
-        temp = (j+1)*10+(i+1);
-
-					 tempVar = i + parseInt(matrixDimension);
-					 if(k==0) tempColor= backArr[tempVar];
-						else if(k==1) tempColor= rightsideArr[tempVar];
-						  else if(k==2) tempColor= frontArr[tempVar];
-							else tempColor =  leftsideArr[tempVar];
-		
-		
-					 $("#"+cL[k]+temp).css("background-color", colorFace[tempColor]);				 
-                                            }              										
-                         }	
+/*
+// rotation around Y-axis
+if ( axisVar == "y") { 
+// rotate matrix around Z axis for selected cell in the middle not edge
+matrixYaxisRotationFunction(numStepRot, matrixDimension, backArr, rightsideArr, frontArr, leftsideArr);
+} 
+*/
+// rotation around Z-axis
+if ( axisVar == "z") {
+// rotate matrix around Z axis for selected cell in the middle not edge
+matrixZaxisRotationFunction(cellLocation, numStepRot, matrixDimension, backArr, rightsideArr, frontArr, leftsideArr);
+// rotate cell color around Z axis for selected cell in the middle not edge
+cellColorZaxisRotationFunction(cL, cellLocation, matrixDimension, backArr, rightsideArr,frontArr, leftsideArr, colorFace);	
+                    }
  
                        }
 
