@@ -33,7 +33,7 @@
 <h2>Rubik Faces</h2>
 <p>Please input a number between 2 and 3 that represent matrix dimension:</p>
 <input id="numb" value="3">
-<button type="button" onclick="dimensionInputFunction()">Submit</button>
+<button type="button" onclick="guiFunction()">Submit</button>
 <p id="demo"></p>
 
 <!-- Create rubic orthographic -->
@@ -53,6 +53,9 @@
 </div>
 <br><br>
 <div>
+<p>Push button to initialize virtual matrix</p>
+ <button type="button" onclick="initializeFunction()">initialization</button>
+ <p id="demo1"></p>
 <p>Choose axis rotation</p>
   <select id="axisRotation">
   
@@ -96,21 +99,14 @@
   
   <br><br>
   
-  <button type="button" onclick="rotationInputFunction()">Submit</button>
+  <button type="button" onclick="rotationFunction()">Submit</button>
 
 </div>
 <p id="demo1"></p>
 
 <!--Call javaScript code for create rubic orthographic -->
-<script src="myScript.js"></script>
-<script src="faceCreationScript.js"></script>
-<script src="cellColorScript.js"></script>
-<script src="rotationScript.js"></script> 
-<!--
-<script src="matrixYaxisRotationScript.js"></script> -->
-<script src="matrixZaxisRotationScript.js"></script>
-<script src="cellColorZaxisScript.js"></script>
-
+<script src="mainFunctionScript.js"></script>
+<script src="branchFunctionScript.js"></script>
 
 </body>
 </html>
